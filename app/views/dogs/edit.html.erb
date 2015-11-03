@@ -1,0 +1,24 @@
+<%= form_for [@user, @user.dogs.build], method: :patch do |f| %>
+<p>
+  <%= f.text_field :name, placeholder: "Dog's Name" %>
+</p>
+<p>
+  <%= f.text_field :age, placeholder: "Age" %>
+</p>
+<p>
+  <%= f.text_field :gender, placeholder: "Gender" %>
+</p>
+<p>
+  <%= f.text_field :breed, placeholder: "Breed" %>
+</p>
+<p>
+  <%= f.text_field :size, placeholder: "Size" %>
+</p>
+<p>
+  <%= f.text_area :describtion, placehold: 'Discribe Your Dog' %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
