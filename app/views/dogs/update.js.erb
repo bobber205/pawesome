@@ -1,2 +1,2 @@
-$('this').html("<%= j render 'dogs' %>");
+$('#dog-<%= @dog.id %>').html("<%= j render 'dogs' %>");
 $('#new-dog-form').empty();

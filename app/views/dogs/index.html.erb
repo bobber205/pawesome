@@ -4,7 +4,7 @@
   <ul id='dog_list'>
     <% if @user.dogs.any? %>
       <% @user.dogs.each do |dog|%>
-        <li>
+        <li id="dog-<%= dog.id %>">
           <strong>Dog's name: </string><%= dog.name%><br>
           <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary', remote: true%>
           <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
