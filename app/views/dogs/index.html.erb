@@ -1,5 +1,5 @@
 <h2>About Your Dogs</h2>
-<%= button_to 'Add Another dog' %>
+<%= link_to 'Add Another dog',new_user_dog_path, class: 'btn btn-primary'%>
 <% if @user.dogs.any? %>
   <% @user.dogs.each do |dog|%>
     <div id="name">
@@ -10,17 +10,18 @@
         <%= dog.breed %>
       </p>
       <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary'%>
-      <%= button_to 'Reomove This Dog', user_dog_path(@user, dog),method: :delete %>
+      <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
+      {confirm: 'Are your sure?'} %>
     </div>
 
   <% end %>
+
 <% else %>
   <p>
     Your currently have no dogs, please add your first dog below.
 
   </p>
   <h2>Add Dog</h2>
-  <%= render 'form'%>
-
+ 
 
 <% end %>

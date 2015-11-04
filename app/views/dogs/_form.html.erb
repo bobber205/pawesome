@@ -1,4 +1,4 @@
-<%= form_for ([@user, @user.dogs.build]) do |f| %>
+<%= form_for [@user, @dog] do |f| %>
   <p>
     <%= f.text_field :name, placeholder: "Dog's Name" %>
   </p>
@@ -18,7 +18,7 @@
     <%= f.text_area :describtion, placehold: 'Discribe Your Dog' %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit%>
   </p>
 
 <% end %>
