@@ -1,2 +1,5 @@
-$('#new-dog-form').hide();
-$('#dog_list').append(<li><%= @dog.name %></li>);
+$(document).alert('are your sure');
+$('#new-dog-form').remove();
+$('#dog_list').append(
+"<li><%= @dog.name%> <%= link_to 'Edit', edit_user_dog_path(@user, @dog), class: 'btn btn-primary'%> <%= link_to 'Reomove This Dog', user_dog_path(@user, @dog), class: 'btn btn-primary', method: :delete, data:
+{confirm: 'Are your sure?'} %></li>");
