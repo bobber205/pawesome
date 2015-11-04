@@ -1,4 +1,4 @@
-<%= form_for [@user, @dog] do |f| %>
+<%= form_for [@user, @dog], remote:true do |f| %>
   <p>
     <%= f.text_field :name, placeholder: "Dog's Name" %>
   </p>

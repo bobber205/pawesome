@@ -2,7 +2,7 @@ class DogsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @dogs = @user.dogs
-     
+
   end
 
   def new
@@ -19,7 +19,11 @@ class DogsController < ApplicationController
     @user = User.find(params[:user_id])
     @dog = @user.dogs.new(dog_params)
     @dog.save
-    redirect_to user_dogs_path(@user, @dog)
+    respond_to do |format|
+      format.html {redirect_to user_dogs_path(@user, @dog)}
+      format.js
+    end
+
   end
 
   def update

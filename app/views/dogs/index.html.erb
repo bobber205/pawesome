@@ -1,27 +1,28 @@
 <h2>About Your Dogs</h2>
-<%= link_to 'Add Another dog',new_user_dog_path, class: 'btn btn-primary'%>
-<% if @user.dogs.any? %>
-  <% @user.dogs.each do |dog|%>
-    <div id="name">
-      <p>
-        <%= dog.name %>
-      </p>
-      <p>
-        <%= dog.breed %>
-      </p>
-      <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary'%>
-      <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
-      {confirm: 'Are your sure?'} %>
-    </div>
+<%= link_to 'Add Another dog',new_user_dog_path, remote: true, class: 'btn btn-primary'%>
+<div>
+  <ul id='dog_list'>
+    <% if @user.dogs.any? %>
+      <% @user.dogs.each do |dog|%>
+        <li>
+          <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary'%>
+          <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
+          {confirm: 'Are your sure?'} %>
+        </li>
 
-  <% end %>
 
-<% else %>
-  <p>
-    Your currently have no dogs, please add your first dog below.
+      <% end %>
+    <% else %>
+    <p>
+      Your currently have no dogs, please add your first dog below.
+    </p>
 
-  </p>
-  <h2>Add Dog</h2>
- 
+    <% end %>
 
-<% end %>
+  </ul>
+</div>
+
+
+<div style='display:none;' id='new-dog-form'>
+
+</div>
