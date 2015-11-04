@@ -18,12 +18,14 @@ class DogsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @dog = @user.dogs.new(dog_params)
-    @dog.save
-    respond_to do |format|
-      format.html {redirect_to user_dogs_path(@user, @dog)}
-      format.js
+    if @dog.save
+      respond_to do |format|
+        format.html {redirect_to user_dogs_path(@user, @dog)}
+        format.js
+      end
+    else
+      render :index
     end
-
   end
 
   def update
@@ -34,7 +36,7 @@ class DogsController < ApplicationController
       format.html {redirect_to user_dogs_path(@user, @dog)}
       format.js
     end
-     
+
   end
 
   def destroy

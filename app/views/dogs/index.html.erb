@@ -1,5 +1,5 @@
 <h2>About Your Dogs</h2>
-<%= link_to 'Add Another dog',new_user_dog_path, remote: true, class: 'btn btn-primary'%>
+<%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%>
 <div>
   <ul id='dog_list'>
     <% if @user.dogs.any? %>
@@ -24,6 +24,6 @@
 </div>
 
 
-<div style='display:none;' id='new-dog-form'>
+<div id='new-dog-form'>
 
 </div>

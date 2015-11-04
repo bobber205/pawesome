@@ -1,0 +1,4 @@
+ <strong>Dog's name: </string><%= @dog.name%><br>
+  <%= link_to 'Edit', edit_user_dog_path(@user, @dog), class: 'btn btn-primary', remote: true%>
+  <%= link_to 'Reomove This Dog', user_dog_path(@user, @dog), class: 'btn btn-primary', method: :delete, data:
+  {confirm: 'Are your sure?'} %>
