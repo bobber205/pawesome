@@ -4,6 +4,7 @@ class StaticsController < ApplicationController
   end
 
   def profile
+    @user = current_user
     render :profile
 
   end

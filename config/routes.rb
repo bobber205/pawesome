@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  resources :users do
+    resources :owners
+  end
+
   resources :owners do
     resources :dogs
   end
 
   root 'statics#index'
 
-  get '/profile', to: 'statics#profile', as: :profile
+  get '/profile' => 'statics#profile', as: :profile
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
