@@ -1,2 +1,14 @@
-<%= link_to 'About you', new_user_owner_path(@user) %><br>
-<%= link_to 'Your dog'%>
+<div class='row'>
+  <div class='col-md-3'>
+    <h3>Click a section below to edit</h3>
+    <%= link_to 'About you', new_user_owner_path(@user), remote: true, class: 'btn btn-primary'%><br>
+    <%= link_to 'Your dog', class: 'btn btn-primary'%>
+  </div>
+
+  <div class='col-md-9'>
+    <div id='form'>
+
+    </div>
+  </div>
+
+</div>

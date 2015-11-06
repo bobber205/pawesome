@@ -5,6 +5,7 @@ class StaticsController < ApplicationController
 
   def profile
     @user = current_user
+    @owner = Owner.new()
     render :profile
 
   end
