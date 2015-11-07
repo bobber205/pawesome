@@ -1,0 +1,19 @@
+<%= form_for [@user, @profile], remote:true do |f| %>
+  <p>
+    <%= f.text_field :first_name, placeholder: "First name" %>
+  </p>
+  <p>
+    <%= f.text_field :last_name, placeholder: "Last name" %>
+  </p>
+  <p>
+    <%= f.text_field :mobile_number, placeholder: "mobile_number" %>
+  </p>
+  <p>
+    <%= f.text_field :avatar %>
+  </p>
+   
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

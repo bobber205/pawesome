@@ -1,0 +1,13 @@
+<div class='row'>
+  <h3>Click a section below to edit</h3>
+  <div class='col-md-3'>
+      <%= link_to 'About you', new_user_profile_path(current_user,current_user.profile), remote: true, class: 'btn btn-primary'%><br>
+      <%= link_to 'Your dog', profile_dogs_path(current_user.profile, @profile.dogs),remote: true, class: 'btn btn-primary'%>
+  </div>  
+  <div class='col-md-9' id='profile_form'>
+    <div id='form'>
+      <%= render 'form' %>
+
+    </div>
+  </div>
+</div>
