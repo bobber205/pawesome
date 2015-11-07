@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :users do
     resources :profiles 
+    resources :dogs
   end
   root 'statics#index'
-  resources :profiles do
-    resources :dogs    
-  end
+   
   
    
   

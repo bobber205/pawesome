@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   
   def create
     @user = User.find(params[:user_id])
-    @profile = Profile.new(profile_prarams)
+    @profile = Profile.new(profile_params)
     if @profile.save
       @user.profile = @profile
       redirect_to edit_user_profile_path(current_user,current_user.profile) 
@@ -25,12 +25,23 @@ class ProfilesController < ApplicationController
   
   def edit
     @user = User.find(params[:user_id])
-    @profile =  Profile.find(params[:id])
-    @dogs = @profile.dogs
+    @profile = Profile.find(params[:id])
+    @dogs = @user.dogs
+     
+  end
+  
+  def update
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:id])
+    @profile.update(profile_params)
+    respond_to do |format|
+      format.html {redirect_to root_path(@user, @profile)}
+      format.js
+    end
   end
   
   private
-    def profile_prarams
+    def profile_params
       params.require(:profile).permit(:first_name, :last_name, :mobile_number, :avatar)
       
     end
