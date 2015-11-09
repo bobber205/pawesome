@@ -1,19 +1,25 @@
 <%= form_for [@user, @profile] do |f| %>
-  <p>
-    <%= f.text_field :first_name, placeholder: "First name" %>
-  </p>
-  <p>
-    <%= f.text_field :last_name, placeholder: "Last name" %>
-  </p>
-  <p>
-    <%= f.text_field :mobile_number, placeholder: "mobile_number" %>
-  </p>
-  <p>
-    <%= f.file_field :avatar %>
-  </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group">
+    <label for="first_name">First name:</label>
+    <%= f.text_field :first_name, placeholder: "First name", :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last name:</label>
+    <%= f.text_field :last_name, placeholder: "Last name", :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label for="mobile_number">Mobile number:</label>
+    <%= f.text_field :mobile_number, placeholder: "mobile_number", :class => 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <label for="avatar">Upload a photo of yourself:</label>
+    <%= f.file_field :avatar, :class => 'form-control'%>
+
+  </div>
+  <%= f.submit "Save&continue", class: 'btn btn-primary'%>
+
+
 
 <% end %>

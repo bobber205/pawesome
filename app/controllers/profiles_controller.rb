@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    @profile = @user.profile 
+    @profile = @user.profile
     @dogs = @user.dogs
 
   end
@@ -35,7 +35,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @profile.update(profile_params)
     respond_to do |format|
-      format.html {redirect_to root_path(@user, @profile)}
+      format.html {redirect_to edit_user_profile_path(@user, @profile)}
       format.js
     end
   end

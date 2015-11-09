@@ -11,8 +11,8 @@
     <% end %>
   </div>
   <div class='col-md-9' id='profile_form'>
-    <h2>About Your Dogs</h2>
-    <%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%>
+    <h4>About Your Dogs <%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%></h4>
+
     <div>
       <ul id='dog_list'>
         <% if @user.dogs.any? %>

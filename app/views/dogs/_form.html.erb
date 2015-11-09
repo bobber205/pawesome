@@ -1,29 +1,63 @@
 <%= form_for [@user, @dog], remote:true do |f| %>
-  <p>
-    <%= f.text_field :name, placeholder: "Dog's Name" %>
-  </p>
-  <p>
-    <%= f.text_field :age, placeholder: "Age" %>
-  </p>
-  <p>
-    <%= f.select :gender, ['Female', 'Male']%>
-  </p>
-  <p>
-    <%= f.text_field :breed, placeholder: "Breed" %>
-  </p>
-  <p>
+  <div class="form-group">
+    <label for="name">Dog's name:</label>
+    <%= f.text_field :name, placeholder: "Dog's Name", class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <%= f.text_field :age, placeholder: "Age", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender:</label>
+    <%= f.select :gender, ['Female', 'Male'], class: 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <label for="breed">Breed:</label>
+    <%= f.text_field :breed, placeholder: "Breed", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label for="size">Size:</label>
     <%= f.select :size, ["Toy(<10 pounds)", "Small(10-20 pounds)", "Meduim(20-40 pounds)", "Large(40-80 pounds)", "Extra Large(80+ pounds)"] %>
-  </p>
-  <p>
-    <%= f.text_area :describtion, placehold: 'Discribe Your Dog' %>
-  </p>
-    Is your dog sprayed or neunered?<br>
-    <%= f.radio_button :fixed, 'yes' %>Yes  <%= f.radio_button :fixed, 'no' %>No  <%= f.radio_button :fixed, 'not sure' %>Not sure <br>
+  </div>
 
-    Is your dog friendly with the other dogs?
-    <%= f.radio_button :friendly, 'yes' %>Yes  <%= f.radio_button :friendly, 'no' %>No  <%= f.radio_button :friendly, 'not sure' %>Not sure
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group">
+    <label for="describtion">Describe your dog: </label>
+    <%= f.text_area :describtion, placehold: 'Discribe Your Dog', class: 'form-control' %>
+  </div>
 
+  <div class="radio">
+    <p>
+      Is your dog sprayed or neunered?
+    </p>
+    <label>
+      <%= f.radio_button :fixed, 'yes' %>Yes
+    </label>
+  </div>
+
+  <div class="radio">
+    <label> <%= f.radio_button :fixed, 'no' %>No </label>
+  </div>
+
+  <div class="radio">
+    <label><%= f.radio_button :fixed, 'not sure' %>Not sure</label>
+  </div>
+
+
+  <div class="radio">
+    <p>
+      Is your dog friendly with the other dogs?
+    </p>
+    <label><%= f.radio_button :friendly, 'yes' %>Yes</label>
+  </div>
+  <div class="radio">
+    <label><%= f.radio_button :friendly, 'no' %>No</label>
+  </div>
+  <div class="radio">
+    <label><%= f.radio_button :friendly, 'not sure' %>Not sure</label>
+  </div>
+
+    <%= f.submit 'Save&continue', class: 'btn btn-primary'%>
 <% end %>
