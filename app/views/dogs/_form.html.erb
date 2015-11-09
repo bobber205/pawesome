@@ -6,18 +6,22 @@
     <%= f.text_field :age, placeholder: "Age" %>
   </p>
   <p>
-    <%= f.text_field :gender, placeholder: "Gender" %>
-    <%= f.select :gender, option_for_select(['Female', 'Male'])%>
+    <%= f.select :gender, ['Female', 'Male']%>
   </p>
   <p>
     <%= f.text_field :breed, placeholder: "Breed" %>
   </p>
   <p>
-    <%= f.text_field :size, placeholder: "Size" %>
+    <%= f.select :size, ["Toy(<10 pounds)", "Small(10-20 pounds)", "Meduim(20-40 pounds)", "Large(40-80 pounds)", "Extra Large(80+ pounds)"] %>
   </p>
   <p>
     <%= f.text_area :describtion, placehold: 'Discribe Your Dog' %>
   </p>
+    Is your dog sprayed or neunered?<br>
+    <%= f.radio_button :fixed, 'yes' %>Yes  <%= f.radio_button :fixed, 'no' %>No  <%= f.radio_button :fixed, 'not sure' %>Not sure <br>
+
+    Is your dog friendly with the other dogs?
+    <%= f.radio_button :friendly, 'yes' %>Yes  <%= f.radio_button :friendly, 'no' %>No  <%= f.radio_button :friendly, 'not sure' %>Not sure
   <p>
     <%= f.submit %>
   </p>

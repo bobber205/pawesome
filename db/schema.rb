@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20151107162918) do
     t.string   "breed"
     t.string   "size"
     t.text     "describtion"
+    t.string   "friendly"
+    t.string   "fixed"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

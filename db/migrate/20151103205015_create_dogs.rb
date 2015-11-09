@@ -7,6 +7,8 @@ class CreateDogs < ActiveRecord::Migration
       t.string :breed
       t.string :size
       t.text :describtion
+      t.string :friendly
+      t.string :fixed
       t.integer :user_id
 
 
