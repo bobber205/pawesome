@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    @profile = Profile.find(params[:id])
+    @profile = @user.profile 
     @dogs = @user.dogs
 
   end

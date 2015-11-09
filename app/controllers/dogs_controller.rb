@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+    @profile = @user.profile 
     @dogs = @user.dogs
 
   end
