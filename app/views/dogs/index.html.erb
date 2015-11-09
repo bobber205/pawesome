@@ -23,17 +23,13 @@
               <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
               {confirm: 'Are your sure?'} %>
             </li>
-
-
           <% end %>
         <% else %>
           <div class="">
             <p>
               Your currently have no dogs, please add your first dog below.
             </p>
-            <div class="">
 
-            </div>
           </div>
 
 
@@ -41,12 +37,11 @@
 
       </ul>
     </div>
+    <div class="row">
+      <div id='new-dog-form' class='col-md-4'>
 
-
-    <div id='new-dog-form'>
-
+      </div>
     </div>
-
 
   </div>
 </div>

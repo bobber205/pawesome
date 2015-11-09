@@ -6,8 +6,16 @@
   </div>
   <div class='col-md-9' id='profile_form'>
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-4">
         <%= render 'form' %>
+      </div>
+      <div class="col-md-4">
+        <% if current_user.profile.avatar.present?%>
+          <%= image_tag(current_user.profile.avatar.url(:medium), :class => "profile-image-200")%>
+        <% else %>
+          <img src="/images/thumb/missing.png" class='profile-image-200' alt="" />
+        <% end %>
+
       </div>
 
     </div>
