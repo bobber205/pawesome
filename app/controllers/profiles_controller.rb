@@ -1,35 +1,35 @@
 class ProfilesController < ApplicationController
-   
-  
-  def new 
+
+
+  def new
     @user = User.find(params[:user_id])
     @profile = Profile.new
-     
+
   end
-  
+
   def create
     @user = User.find(params[:user_id])
     @profile = Profile.new(profile_params)
     if @profile.save
       @user.profile = @profile
-      redirect_to edit_user_profile_path(current_user,current_user.profile) 
-    else 
+      redirect_to edit_user_profile_path(current_user,current_user.profile)
+    else
       render 'new'
-    end      
+    end
   end
-  
+
   def show
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:id])
   end
-  
+
   def edit
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:id])
     @dogs = @user.dogs
-     
+
   end
-  
+
   def update
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:id])
@@ -39,11 +39,11 @@ class ProfilesController < ApplicationController
       format.js
     end
   end
-  
+
   private
     def profile_params
       params.require(:profile).permit(:first_name, :last_name, :mobile_number, :avatar)
-      
+
     end
-  
+
 end

@@ -1,29 +1,46 @@
-<h2>About Your Dogs</h2>
-<%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%>
-<div>
-  <ul id='dog_list'>
-    <% if @user.dogs.any? %>
-      <% @user.dogs.each do |dog|%>
-        <li id="dog-<%= dog.id %>">
-          <strong>Dog's name: </string><%= dog.name%><br>
-          <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary', remote: true%>
-          <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
-          {confirm: 'Are your sure?'} %>
-        </li>
+<div class='row'>
+  <h3>Click a section below to edit</h3>
+  <div class='col-md-3'>
+      <%= link_to 'About you', edit_user_profile_path(current_user,current_user.profile), class: 'btn btn-primary'%><br>
+      <%= link_to 'Your dog', user_dogs_path(@user, @user.dogs), class: 'btn btn-primary'%>
+  </div>
+  <div class='col-md-9' id='profile_form'>
+    <h2>About Your Dogs</h2>
+    <%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%>
+    <div>
+      <ul id='dog_list'>
+        <% if @user.dogs.any? %>
+          <% @user.dogs.each do |dog|%>
+            <li id="dog-<%= dog.id %>">
+              <strong>Dog's name: </string><%= dog.name%><br>
+              <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary', remote: true%>
+              <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
+              {confirm: 'Are your sure?'} %>
+            </li>
 
 
-      <% end %>
-    <% else %>
-    <p>
-      Your currently have no dogs, please add your first dog below.
-    </p>
+          <% end %>
+        <% else %>
+          <div class="">
+            <p>
+              Your currently have no dogs, please add your first dog below.
+            </p>
+            <div class="">
+               
+            </div>
+          </div>
 
-    <% end %>
 
-  </ul>
-</div>
+        <% end %>
+
+      </ul>
+    </div>
 
 
-<div id='new-dog-form'>
+    <div id='new-dog-form'>
 
+    </div>
+
+
+  </div>
 </div>
