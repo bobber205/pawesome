@@ -1,0 +1,49 @@
+<%= form_for [@user, @listing] do |f| %>
+
+  <div class="form-group">
+    <label for="address" >Your full address:</label>
+    <%= f.text_field :address, placeholder: "Address", :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label for="title">You title ex:Butter and friends</label>
+    <%= f.text_field :title, placeholder: "Title(20 characters or less)", :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label for="describtion">Describe your self, what make your a great host for your furry friends</label>
+    <%= f.text_area :describtion, :class => 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <label for="property_type">Property type:</label>
+    <%= f.select :property_type, ["Apartment", "House", "Ranch"] %>
+  </div>
+
+  <div class='check-box'>
+    <p>
+      Which dog size(s) will you host?* (Check all that apply.)
+    </p>
+
+    <%= f.check_box :dog_type%>
+    <%= f.label :dog_type, "Small (0-20lbs)" %><br>
+
+    <%= f.check_box :dog_type%>
+    <%= f.label :dog_type, "Medium (20-40lbs)" %><br>
+
+    <%= f.check_box :dog_type%>
+    <%= f.label :dog_type, "Large (40-80lbs)" %><br>
+
+    <%= f.check_box :dog_type%>
+    <%= f.label :dog_type, "Giant (80+lbs)" %><br>
+
+  </div>
+
+  <div class="form-group">
+    <label for="listing_photo">Upload photos for your business:</label>
+    <%= f.file_field :class => 'form-control'%>
+
+  </div>
+  <%= f.submit "Save&continue", class: 'btn btn-primary'%>
+
+
+
+<% end %>

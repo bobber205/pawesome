@@ -42,6 +42,12 @@
                 <% end %>
 
                 <li><%= link_to 'Account', edit_user_registration_path %></li>
+                <% if current_user.listing.present?%>
+                  <li><%= link_to 'Your listing', edit_user_listing_path(current_user, current_user.listing)%></li>
+
+                <% else%>
+                  <li><%= link_to 'Become a sitter', new_user_listing_path(current_user)%></li>
+                <% end %>
                 <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
