@@ -1,4 +1,4 @@
-<%= form_for [@user, @listing] do |f| %>
+<%= form_for [@user, @listing], multipart: true do |f| %>
 
   <div class="form-group">
     <label for="address" >Your full address:</label>
@@ -19,22 +19,13 @@
   </div>
 
   <div class='check-box'>
-    <p>
+    <label for='dog_type'>
       Which dog size(s) will you host?* (Check all that apply.)
-    </p>
-
-    <%= f.check_box :dog_type%>
-    <%= f.label :dog_type, "Small (0-20lbs)" %><br>
-
-    <%= f.check_box :dog_type%>
-    <%= f.label :dog_type, "Medium (20-40lbs)" %><br>
-
-    <%= f.check_box :dog_type%>
-    <%= f.label :dog_type, "Large (40-80lbs)" %><br>
-
-    <%= f.check_box :dog_type%>
-    <%= f.label :dog_type, "Giant (80+lbs)" %><br>
-
+    </label>
+    <p><%= check_box_tag('listing[dog_type][]', 'Small (0-20lbs)') %> Small (0-20lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Medium (20-40lbs)') %> Medium (20-40lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Large (40-80lbs)') %> Large (40-80lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Giant (80+lbs)') %> Giant (80+lbs)</p>
   </div>
 
   <div class="form-group">

@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+
   def new
     @user = User.find(params[:user_id])
     @listing = Listing.new
@@ -33,7 +34,7 @@ class ListingsController < ApplicationController
 
   private
     def listing_params
-      params.require(:listing).permit(:address, :title, :describtion, :property_type, :dog_type, :listing_photo)
+      params.require(:listing).permit(:address, :title, :describtion, :property_type, :listing_photo, dog_type:[])
 
     end
 end
