@@ -16,7 +16,9 @@
         <%= render 'form' %>
       </div>
       <div class='col-md-4'>
-        <%= current_user.listing.listing_photos>
+        <%= current_user.listing.photos.each do |photo| %>
+
+        <%= end %>
 
 
       </div>

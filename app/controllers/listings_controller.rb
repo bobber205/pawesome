@@ -19,8 +19,8 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @user.listing = @listing
     if @listing.save
-      params[:image].each do |picture|
-        @listing.listing_photos.create(:image => picture)
+      params[:images].each do |image|
+        @listing.photos.create(:image => image)
       end
       redirect_to edit_user_listing_path(@user,@listing)
     else render 'new'
@@ -40,7 +40,7 @@ class ListingsController < ApplicationController
 
   private
     def listing_params
-      params.require(:listing).permit(:address, :title, :describtion, :property_type, :listing_photo, dog_type:[])
+      params.require(:listing).permit(:address, :title, :describtion, :property_type, dog_type:[])
 
     end
 end

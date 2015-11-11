@@ -30,7 +30,7 @@
 
   <div class="form-group">
     <label for="listing_photo">Upload photos for your business:</label>
-    <%= f.file_field :image, :class => 'form-control', :multiple =>:true %>
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
 
   </div>
   <%= f.submit "Save&continue", class: 'btn btn-primary'%>

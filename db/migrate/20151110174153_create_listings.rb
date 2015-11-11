@@ -6,9 +6,7 @@ class CreateListings < ActiveRecord::Migration
       t.text :describtion
       t.string :property_type
       t.string :dog_type
-      t.attachment :image
       t.integer :user_id
-
 
       t.timestamps null: false
     end
