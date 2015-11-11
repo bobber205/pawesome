@@ -13,7 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'paperclip', '~> 4.3', '>= 4.3.1'
+gem 'paperclip'
+gem "mini_magick"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

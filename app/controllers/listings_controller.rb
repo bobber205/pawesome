@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @listing = Listing.new
+    @listing.dog_type = []
     @profile = @user.profile
   end
 
@@ -18,6 +19,9 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @user.listing = @listing
     if @listing.save
+      params[:image].each do |picture|
+        @listing.listing_photos.create(:image => picture)
+      end
       redirect_to edit_user_listing_path(@user,@listing)
     else render 'new'
     end

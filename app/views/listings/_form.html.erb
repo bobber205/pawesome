@@ -1,4 +1,4 @@
-<%= form_for [@user, @listing], multipart: true do |f| %>
+<%= form_for [@user, @listing], html: {multipart: true} do |f| %>
 
   <div class="form-group">
     <label for="address" >Your full address:</label>
@@ -30,11 +30,9 @@
 
   <div class="form-group">
     <label for="listing_photo">Upload photos for your business:</label>
-    <%= f.file_field :class => 'form-control'%>
+    <%= f.file_field :image, :class => 'form-control', :multiple =>:true %>
 
   </div>
   <%= f.submit "Save&continue", class: 'btn btn-primary'%>
-
-
 
 <% end %>
