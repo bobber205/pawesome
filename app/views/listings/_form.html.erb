@@ -22,10 +22,10 @@
     <label for='dog_type'>
       Which dog size(s) will you host?* (Check all that apply.)
     </label>
-    <p><%= check_box_tag('listing[dog_type][]', 'Small (0-20lbs)') %> Small (0-20lbs)</p>
-    <p><%= check_box_tag('listing[dog_type][]', 'Medium (20-40lbs)') %> Medium (20-40lbs)</p>
-    <p><%= check_box_tag('listing[dog_type][]', 'Large (40-80lbs)') %> Large (40-80lbs)</p>
-    <p><%= check_box_tag('listing[dog_type][]', 'Giant (80+lbs)') %> Giant (80+lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Small (0-20lbs)', @listing.dog_type.include?('Small (0-20lbs)')) %> Small (0-20lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Medium (20-40lbs)', @listing.dog_type.include?('Medium (20-40lbs)')) %> Medium (20-40lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Large (40-80lbs)', @listing.dog_type.include?('Large (40-80lbs)')) %> Large (40-80lbs)</p>
+    <p><%= check_box_tag('listing[dog_type][]', 'Giant (80+lbs)', @listing.dog_type.include?('Giant (80+lbs)')) %> Giant (80+lbs)</p>
   </div>
 
   <div class="form-group">
