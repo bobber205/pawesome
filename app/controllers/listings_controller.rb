@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
     @user = User.find(params[:user_id])
     @profile = @user.profile
     @listing = @user.listing
+    @dog_type = params[:dog_type] || []
   end
 
   def create
@@ -25,6 +26,7 @@ class ListingsController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @listing = Listing.find(params[:id])
+    @dog_type = params[:dog_type] || []
     @listing.update(listing_params)
     respond_to do |format|
       format.html {redirect_to edit_user_listing_path(@user, @listing)}
