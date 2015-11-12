@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
     resources :dogs
-    resources :listings
+    resources :listings do
+      resources :photos
+    end
   end
   root 'statics#index'
 

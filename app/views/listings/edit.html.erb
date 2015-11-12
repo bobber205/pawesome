@@ -12,13 +12,39 @@
   </div>
   <div class='col-md-9'>
     <div class="row">
-      <div class='col-md-4'>
+      <div class='col-md-8'>
         <%= render 'form' %>
       </div>
       <div class='col-md-4'>
-        <% @photos.each do |photo| %>
-          <%= image_tag photo.image.url(:thumb)%>
-        <% end %>
+        <h3>Your Photos: </h3>
+        <div style='border: dashed; text-align: center;'>
+          <strong>
+            To Delete Images:
+          </strong>
+          <p>
+            Hover over an image and click "X"
+          </p>
+
+        </div>
+
+        <div >
+          <ul style='list-style: none;'>
+            <% @photos.each do |photo| %>
+                <li id='photo-<%= photo.id%>' style='display: inline_block''>
+                  <div style='position: relative; display: inline_block'>
+                    <%= image_tag photo.image.url(:thumb)%>
+                    <%= link_to(@user, @listing, photo), method: :delete do %>
+                      <span class='glyphicon glyphicon-remove'></span>
+                    <% end %>
+                  </div>
+
+                </li>
+            <% end %>
+
+          </ul>
+
+        </div>
+
       </div>
     </div>
   </div>
