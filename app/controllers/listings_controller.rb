@@ -12,6 +12,7 @@ class ListingsController < ApplicationController
     @profile = @user.profile
     @listing = @user.listing
     @dog_type = params[:dog_type] || []
+    @photos = @listing.photos
   end
 
   def create
@@ -19,11 +20,14 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @user.listing = @listing
     if @listing.save
-      params[:images].each do |image|
-        @listing.photos.create(:image => image)
+      if params[:images].present?
+        params[:images].each do |image|
+          @listing.photos.create(:image => image)
+        end
       end
       redirect_to edit_user_listing_path(@user,@listing)
-    else render 'new'
+    else
+      render 'new'
     end
   end
 
@@ -31,16 +35,21 @@ class ListingsController < ApplicationController
     @user = User.find(params[:user_id])
     @listing = Listing.find(params[:id])
     @dog_type = params[:dog_type] || []
-    @listing.update(listing_params)
-    respond_to do |format|
-      format.html {redirect_to edit_user_listing_path(@user, @listing)}
-      format.js
+    if @listing.update(listing_params)
+      if params[:images].present?
+        params[:images].each do |image|
+          @listing.photos.create(:image => image)
+        end
+      end
+      respond_to do |format|
+        format.html {redirect_to edit_user_listing_path(@user, @listing)}
+        format.js
+      end
     end
   end
 
   private
     def listing_params
       params.require(:listing).permit(:address, :title, :describtion, :property_type, dog_type:[])
-
     end
 end

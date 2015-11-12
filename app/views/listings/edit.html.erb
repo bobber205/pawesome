@@ -16,11 +16,9 @@
         <%= render 'form' %>
       </div>
       <div class='col-md-4'>
-        <%= current_user.listing.photos.each do |photo| %>
-
-        <%= end %>
-
-
+        <% @photos.each do |photo| %>
+          <%= image_tag photo.image.url(:thumb)%>
+        <% end %>
       </div>
     </div>
   </div>
