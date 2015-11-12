@@ -28,16 +28,15 @@
         </div>
 
         <div >
-          <ul style='list-style: none;'>
+          <ul style='list-style: none; display: inline-block'>
             <% @photos.each do |photo| %>
-                <li id='photo-<%= photo.id%>' style='display: inline_block''>
-                  <div style='position: relative; display: inline_block'>
-                    <%= image_tag photo.image.url(:thumb)%>
-                    <%= link_to(@user, @listing, photo), method: :delete do %>
-                      <span class='glyphicon glyphicon-remove'></span>
-                    <% end %>
+                <li id="photo-<%= photo.id %>" style='display: inline-block'>
+                  <div style='position: relative; display: inline-block'  class='photos'>
+                    <%= image_tag photo.image.url(:thumb) %>
+                    <div style='position: absolute; top: 0; right: 0; background-color: #29293d; border-radius: 50%; width:1.5em; height: 1.5em; text-align: center;' class='delete-photo' id="delete-photo-<%= photo.id %>">
+                      <%= link_to 'X', user_listing_photo_path(@user, @listing, photo), method: :delete%>
+                    </div>
                   </div>
-
                 </li>
             <% end %>
 

@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function(){
+  $(".delete-photo").hide();
+  $('.photos').hover(function() {
+    $(this).find('div').show();
+  }, function() {
+    $(this).find('div').hide();
+  });
+});
