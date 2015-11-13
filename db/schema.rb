@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20151111211051) do
     t.string   "friendly"
     t.string   "fixed"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "dog_avatar_file_name"
+    t.string   "dog_avatar_content_type"
+    t.integer  "dog_avatar_file_size"
+    t.datetime "dog_avatar_updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "listings", force: :cascade do |t|

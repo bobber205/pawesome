@@ -10,7 +10,7 @@ class CreateDogs < ActiveRecord::Migration
       t.string :friendly
       t.string :fixed
       t.integer :user_id
-
+      t.attachment :dog_avatar 
 
       t.timestamps null: false
     end

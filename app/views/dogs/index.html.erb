@@ -11,14 +11,21 @@
     <% end %>
   </div>
   <div class='col-md-9' id='profile_form'>
-    <h4>About Your Dogs <%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%></h4>
+    <h4>About Your Dogs</h4>
+    <p>
+      <%= link_to 'Add Another dog', new_user_dog_path, remote: true, class: 'btn btn-primary'%>
+    </p>
 
-    <div>
-      <ul id='dog_list'>
+    <div style='border: solid'>
+      <ul id='dog_list' style='list-style: none;'>
         <% if @user.dogs.any? %>
           <% @user.dogs.each do |dog|%>
             <li id="dog-<%= dog.id %>">
-              <strong>Dog's name: </string><%= dog.name%><br>
+              <% if dog.dog_avatar.present? %>
+                <%= image_tag(dog.dog_avatar.url(:medium), :class => "dog-image-200")%>
+              <% end %>
+              <strong>Dog name: </string><%= dog.name%><br>
+              <strong>Breed: </string><%= dog.breed%><br>
               <%= link_to 'Edit', edit_user_dog_path(@user, dog), class: 'btn btn-primary', remote: true%>
               <%= link_to 'Reomove This Dog', user_dog_path(@user, dog), class: 'btn btn-primary', method: :delete, data:
               {confirm: 'Are your sure?'} %>

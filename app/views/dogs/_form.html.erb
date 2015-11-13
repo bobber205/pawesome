@@ -59,5 +59,11 @@
     <label><%= f.radio_button :friendly, 'not sure' %>Not sure</label>
   </div>
 
+  <div class="form-group">
+    <label>Upload a photo of your dog:</label>
+    <%= f.file_field :dog_avatar, :class => 'form-control'%>
+
+  </div>
+
     <%= f.submit 'Save&continue', class: 'btn btn-primary'%>
 <% end %>
