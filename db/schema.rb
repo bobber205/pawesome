@@ -26,12 +26,8 @@ ActiveRecord::Schema.define(version: 20151111211051) do
     t.string   "friendly"
     t.string   "fixed"
     t.integer  "user_id"
-    t.string   "dog_avatar_file_name"
-    t.string   "dog_avatar_content_type"
-    t.integer  "dog_avatar_file_size"
-    t.datetime "dog_avatar_updated_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "listings", force: :cascade do |t|
@@ -41,8 +37,12 @@ ActiveRecord::Schema.define(version: 20151111211051) do
     t.string   "property_type"
     t.string   "dog_type"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "listing_photo_file_name"
+    t.string   "listing_photo_content_type"
+    t.integer  "listing_photo_file_size"
+    t.datetime "listing_photo_updated_at"
   end
 
   create_table "photos", force: :cascade do |t|

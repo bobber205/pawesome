@@ -7,9 +7,9 @@ Rails.application.routes.draw do
       resources :photos
     end
   end
+  resources :listings
   root 'statics#index'
-
-
+end
 
 
 
@@ -69,4 +69,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
