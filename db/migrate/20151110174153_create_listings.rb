@@ -7,6 +7,7 @@ class CreateListings < ActiveRecord::Migration
       t.string :property_type
       t.string :dog_type
       t.integer :user_id
+       
 
       t.timestamps null: false
     end
