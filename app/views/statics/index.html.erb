@@ -1,6 +1,18 @@
 
 <div class="jumbotron">
 </div>
-<h1 style="text-align: center">
-  Find the <em style='color: red'>Pawesome</em> pet sitter near you
-</h1>
+<div class="row">
+  <h1 style="text-align: center">
+    Find a <em style='color: red'>Pawesome</em> pet sitter near you
+  </h1>  
+</div>
+<div class="row">
+  <div class="form-inline" style="text-align: center">
+    <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <%= text_field_tag :search, params[:search], placeholder: "Zipcode or Address", :class => "form-control"%>
+    <%= submit_tag "FIND A SITTER", :class => "form-control" %>
+    <% end %>
+  </div>
+</div>
+ 

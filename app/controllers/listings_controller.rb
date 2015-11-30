@@ -1,10 +1,16 @@
 class ListingsController < ApplicationController
   def index  
     @listings = Listing.all
+    if params[:search]
+      @listings = Listing.search(params[:search]) 
+    else
+      @listings = Listing.all 
+    end
   end
   
   def show 
     @listing = Listing.find(params[:id])
+     
   end
 
   def new
@@ -57,6 +63,6 @@ class ListingsController < ApplicationController
 
   private
     def listing_params
-      params.require(:listing).permit(:address, :title, :describtion, :property_type, dog_type:[])
+      params.require(:listing).permit(:address, :zipcode, :title, :describtion, :property_type, dog_type:[])
     end
 end
