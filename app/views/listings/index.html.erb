@@ -28,6 +28,15 @@
             </div>
           <% end %>
         <% end %>
+        <div class="col-md-5">
+          <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=portland, oregon&size=500x600&key=AIzaSyCHJqE8WTFV0eu2F2bR32EzFBrL465BI6s"> -->
+          <% my_url = "https://maps.googleapis.com/maps/api/staticmap?&size=500x600&key=AIzaSyCHJqE8WTFV0eu2F2bR32EzFBrL465BI6s" %>
+          <% @listings.each do |listing| %> 
+          <% my_url += "&markers=color:red|#{listing.latitude}%2C#{listing.longitude}" %>    
+          <% end %>
+          <%= image_tag my_url %>
+          
+        </div>
       </div>
   </div>
   
