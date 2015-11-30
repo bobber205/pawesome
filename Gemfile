@@ -17,6 +17,7 @@ gem 'paperclip'
 gem "mini_magick"
 
 gem 'geocoder', '~> 1.2', '>= 1.2.12'
+gem 'area', '~> 0.10.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
